@@ -10,13 +10,15 @@ import { HomeComponent } from './home/home.component';
 
 import { CryptoDataService } from './fetch-data/CryptoDataService';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
+import { DeltaspecComponent } from './deltaspec/deltaspec.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    FetchDataComponent
+    FetchDataComponent,
+    DeltaspecComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -25,6 +27,7 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'fetch-data', component: FetchDataComponent },
+      { path: 'deltaspec', component: DeltaspecComponent},
     ])
   ],
   providers: [CryptoDataService],
