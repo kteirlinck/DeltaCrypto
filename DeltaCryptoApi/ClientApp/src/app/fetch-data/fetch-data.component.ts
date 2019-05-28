@@ -15,7 +15,7 @@ export class FetchDataComponent {
   }
 
   ngOnInit() {
-    this._data.getPrices()
+    this._data.getTopData()
       .subscribe(res => {
         this.cryptos = res;
         console.log(res);

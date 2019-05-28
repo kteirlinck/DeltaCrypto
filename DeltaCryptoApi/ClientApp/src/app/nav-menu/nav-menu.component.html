@@ -23,9 +23,26 @@
                     </a>
                 </li>
                 <li [routerLinkActive]='["link-active"]'>
+                    <a [routerLink]='["/sniper"]' (click)='collapse()'>
+                        <span class='glyphicon glyphicon-screenshot'></span> Sniper
+                    </a>
+                </li>
+                <li [routerLinkActive]='["link-active"]'>
                     <a [routerLink]='["/deltaspec"]' (click)='collapse()'>
                         <span class='glyphicon glyphicon-th-list'></span> Speculate
                     </a>
+                    <ul>
+                        <li >
+                            <a [routerLink]='["/specbuyorder"]' (click)='collapse()'>
+                                <span class='glyphicon glyphicon-shopping-cart'></span> Buy Order
+                            </a>
+                        </li>
+                        <li >
+                            <a [routerLink]='["/specsellorder"]' (click)='collapse()'>
+                                <span class='glyphicon glyphicon-tags'></span> Sell Order
+                            </a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </div>
