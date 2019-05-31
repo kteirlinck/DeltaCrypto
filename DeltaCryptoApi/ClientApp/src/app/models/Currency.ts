@@ -1,0 +1,37 @@
+export interface Currency {
+    TYPE: string;
+    MARKET: string;
+    FROMSYMBOL: string;
+    TOSYMBOL: string;
+    FLAGS: string;
+    PRICE: number;
+    LASTUPDATE: number;
+    LASTVOLUME: number;
+    LASTVOLUMETO: number;
+    LASTTRADEID: string;
+    VOLUMEDAY: number;
+    VOLUMEDAYTO: number;
+    VOLUME24HOUR: number;
+    VOLUME24HOURTO: number;
+    OPENDAY: number;
+    HIGHDAY: number;
+    LOWDAY: number;
+    OPEN24HOUR?: any;
+    HIGH24HOUR: number;
+    LOW24HOUR?: any;
+    LASTMARKET: string;
+    VOLUMEHOUR: number;
+    VOLUMEHOURTO: number;
+    OPENHOUR: number;
+    HIGHHOUR: number;
+    LOWHOUR: number;
+    CHANGE24HOUR?: any;
+    CHANGEPCT24HOUR?: any;
+    CHANGEDAY: number;
+    CHANGEPCTDAY: number;
+    SUPPLY: number;
+    MKTCAP: number;
+    TOTALVOLUME24H: number;
+    TOTALVOLUME24HTO: number;
+    IMAGEURL: string;
+  }

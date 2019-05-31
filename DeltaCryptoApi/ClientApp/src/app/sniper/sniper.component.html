@@ -1,3 +1,55 @@
-<p>
-  sniper works!
-</p>
+<h2>Pick a prey.</h2>
+<p>Use the dropdown menus below to pair a specific crypto with a specific fiat currency and press aim.</p>
+<br>
+<select id="fsymsSelect" [(ngModel)]="fsymsPick" (change)="fSelected()">
+  <option *ngFor="let fsyms of fsymsCollection" [value]="fsyms.Fsyms">{{fsyms.Fsyms}}</option>
+</select>
+<select id="tsymsSelect" [(ngModel)]="tsymsPick" (change)="tSelected()">
+    <option *ngFor="let tsyms of tsymsCollection" [value]="tsyms.Tsyms">{{tsyms.Tsyms}}</option>
+  </select>
+<button (click)="Aim()">AIM</button>
+
+<div *ngIf="dataLoaded">
+  <table class="table table-data">
+    <tbody *ngFor="let result of objectKeys(tsymsResult)">
+      
+        <tr class="TYPE">{{tsymsResult[result].TYPE}}</tr>
+        <tr class="MARKET">{{tsymsResult[result].MARKET}}</tr>
+        <tr class="FROMSYMBOL">{{tsymsResult[result].FROMSYMBOL}}</tr>
+        <tr class="TOSYMBOL">{{tsymsResult[result].TOSYMBOL}}</tr>
+        <tr class="FLAGS">{{tsymsResult[result].FLAGS}}</tr>
+        <tr class="PRICE">{{tsymsResult[result].PRICE}}</tr>
+        <tr class="LASTUPDATE">{{tsymsResult[result].LASTUPDATE}}</tr>
+        <tr class="LASTVOLUME">{{tsymsResult[result].LASTVOLUME}}</tr>
+        <tr class="LASTVOLUMETO">{{tsymsResult[result].LASTVOLUMETO}}</tr>
+        <tr class="LASTTRADEID">{{tsymsResult[result].LASTTRADEID}}</tr>
+        <tr class="VOLUMEDAY">{{tsymsResult[result].VOLUMEDAY}}</tr>
+        <tr class="VOLUMEDAYTO">{{tsymsResult[result].VOLUMEDAYTO}}</tr>
+        <tr class="VOLUME24HOUR">{{tsymsResult[result].VOLUME24HOUR}}</tr>
+        <tr class="VOLUME24HOURTO">{{tsymsResult[result].VOLUME24HOURTO}}</tr>
+        <tr class="OPENDAY">{{tsymsResult[result].OPENDAY}}</tr>
+        <tr class="HIGHDAY">{{tsymsResult[result].HIGHDAY}}</tr>
+        <tr class="LOWDAY">{{tsymsResult[result].LOWDAY}}</tr>
+        <tr class="OPEN24HOUR">{{tsymsResult[result].OPEN24HOUR}}</tr>
+        <tr class="HIGH24HOUR">{{tsymsResult[result].HIGH24HOUR}}</tr>
+        <tr class="LOW24HOUR">{{tsymsResult[result].LOW24HOUR}}</tr>
+        <tr class="LASTMARKET">{{tsymsResult[result].LASTMARKET}}</tr>
+        <tr class="VOLUMEHOUR">{{tsymsResult[result].VOLUMEHOUR}}</tr>
+        <tr class="VOLUMEHOURTO">{{tsymsResult[result].VOLUMEHOURTO}}</tr>
+        <tr class="OPENHOUR">{{tsymsResult[result].OPENHOUR}}</tr>
+        <tr class="HIGHHOUR">{{tsymsResult[result].HIGHHOUR}}</tr>
+        <tr class="LOWHOUR">{{tsymsResult[result].LOWHOUR}}</tr>
+        <tr class="CHANGE24HOUR">{{tsymsResult[result].CHANGE24HOUR}}</tr>
+        <tr class="CHANGEPCT24HOUR">{{tsymsResult[result].CHANGEPCT24HOUR}}</tr>
+        <tr class="CHANGEDAY">{{tsymsResult[result].CHANGEDAY}}</tr>
+        <tr class="CHANGEPCTDAY">{{tsymsResult[result].CHANGEPCtrAY}}</tr>
+        <tr class="SUPPLY">{{tsymsResult[result].SUPPLY}}</tr>
+        <tr class="MKTCAP">{{tsymsResult[result].MKTCAP}}</tr>
+        <tr class="TOTALVOLUME24H">{{tsymsResult[result].TOTALVOLUME24H}}</tr>
+        <tr class="TOTALVOLUME24HTO">{{tsymsResult[result].TOTALVOLUME24HTO}}</tr>
+      
+    </tbody>
+  </table>
+</div>
+
+

@@ -24,7 +24,7 @@ import { SpecsellorderComponent } from './specsellorder/specsellorder.component'
     DeltaspecComponent,
     SniperComponent,
     SpecbuyorderComponent,
-    SpecsellorderComponent
+    SpecsellorderComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
