@@ -8,46 +8,45 @@
     <option *ngFor="let tsyms of tsymsCollection" [value]="tsyms.Tsyms">{{tsyms.Tsyms}}</option>
   </select>
 <button (click)="Aim()">AIM</button>
-
+<br>
 <div *ngIf="dataLoaded">
   <table class="table table-data">
     <tbody *ngFor="let result of objectKeys(tsymsResult)">
       
-        <tr class="TYPE">{{tsymsResult[result].TYPE}}</tr>
-        <tr class="MARKET">{{tsymsResult[result].MARKET}}</tr>
-        <tr class="FROMSYMBOL">{{tsymsResult[result].FROMSYMBOL}}</tr>
-        <tr class="TOSYMBOL">{{tsymsResult[result].TOSYMBOL}}</tr>
-        <tr class="FLAGS">{{tsymsResult[result].FLAGS}}</tr>
-        <tr class="PRICE">{{tsymsResult[result].PRICE}}</tr>
-        <tr class="LASTUPDATE">{{tsymsResult[result].LASTUPDATE}}</tr>
-        <tr class="LASTVOLUME">{{tsymsResult[result].LASTVOLUME}}</tr>
-        <tr class="LASTVOLUMETO">{{tsymsResult[result].LASTVOLUMETO}}</tr>
-        <tr class="LASTTRADEID">{{tsymsResult[result].LASTTRADEID}}</tr>
-        <tr class="VOLUMEDAY">{{tsymsResult[result].VOLUMEDAY}}</tr>
-        <tr class="VOLUMEDAYTO">{{tsymsResult[result].VOLUMEDAYTO}}</tr>
-        <tr class="VOLUME24HOUR">{{tsymsResult[result].VOLUME24HOUR}}</tr>
-        <tr class="VOLUME24HOURTO">{{tsymsResult[result].VOLUME24HOURTO}}</tr>
-        <tr class="OPENDAY">{{tsymsResult[result].OPENDAY}}</tr>
-        <tr class="HIGHDAY">{{tsymsResult[result].HIGHDAY}}</tr>
-        <tr class="LOWDAY">{{tsymsResult[result].LOWDAY}}</tr>
-        <tr class="OPEN24HOUR">{{tsymsResult[result].OPEN24HOUR}}</tr>
-        <tr class="HIGH24HOUR">{{tsymsResult[result].HIGH24HOUR}}</tr>
-        <tr class="LOW24HOUR">{{tsymsResult[result].LOW24HOUR}}</tr>
-        <tr class="LASTMARKET">{{tsymsResult[result].LASTMARKET}}</tr>
-        <tr class="VOLUMEHOUR">{{tsymsResult[result].VOLUMEHOUR}}</tr>
-        <tr class="VOLUMEHOURTO">{{tsymsResult[result].VOLUMEHOURTO}}</tr>
-        <tr class="OPENHOUR">{{tsymsResult[result].OPENHOUR}}</tr>
-        <tr class="HIGHHOUR">{{tsymsResult[result].HIGHHOUR}}</tr>
-        <tr class="LOWHOUR">{{tsymsResult[result].LOWHOUR}}</tr>
-        <tr class="CHANGE24HOUR">{{tsymsResult[result].CHANGE24HOUR}}</tr>
-        <tr class="CHANGEPCT24HOUR">{{tsymsResult[result].CHANGEPCT24HOUR}}</tr>
-        <tr class="CHANGEDAY">{{tsymsResult[result].CHANGEDAY}}</tr>
-        <tr class="CHANGEPCTDAY">{{tsymsResult[result].CHANGEPCtrAY}}</tr>
-        <tr class="SUPPLY">{{tsymsResult[result].SUPPLY}}</tr>
-        <tr class="MKTCAP">{{tsymsResult[result].MKTCAP}}</tr>
-        <tr class="TOTALVOLUME24H">{{tsymsResult[result].TOTALVOLUME24H}}</tr>
-        <tr class="TOTALVOLUME24HTO">{{tsymsResult[result].TOTALVOLUME24HTO}}</tr>
-      
+        <!-- <tr class="TYPE">TYPE:    {{tsymsResult[result].TYPE}}</tr> -->
+        <tr class="MARKET">MARKET:    {{tsymsResult[result].MARKET}}</tr>
+        <tr class="FROMSYMBOL">FROMSYMBOL:    {{tsymsResult[result].FROMSYMBOL}}</tr>
+        <tr class="TOSYMBOL">TOSYMBOL:    {{tsymsResult[result].TOSYMBOL}}</tr>
+        <!-- <tr class="FLAGS">FLAGS:    {{tsymsResult[result].FLAGS}}</tr> -->
+        <tr class="PRICE">PRICE:    {{tsymsResult[result].PRICE}}</tr>
+        <tr class="LASTUPDATE">LASTUPDATE:    {{tsymsResult[result].LASTUPDATE}}</tr>
+        <tr class="LASTVOLUME">LASTVOLUME:    {{tsymsResult[result].LASTVOLUME}}</tr>
+        <tr class="LASTVOLUMETO">LASTVOLUMETO:    {{tsymsResult[result].LASTVOLUMETO}}</tr>
+        <tr class="LASTTRADEID">LASTTRADEID:    {{tsymsResult[result].LASTTRADEID}}</tr>
+        <tr class="VOLUMEDAY">VOLUMEDAY:    {{tsymsResult[result].VOLUMEDAY}}</tr>
+        <tr class="VOLUMEDAYTO">VOLUMEDAYTO:    {{tsymsResult[result].VOLUMEDAYTO}}</tr>
+        <tr class="VOLUME24HOUR">VOLUME24HOUR:    {{tsymsResult[result].VOLUME24HOUR}}</tr>
+        <tr class="VOLUME24HOURTO">VOLUME24HOURTO:    {{tsymsResult[result].VOLUME24HOURTO}}</tr>
+        <tr class="OPENDAY">OPENDAY:    {{tsymsResult[result].OPENDAY}}</tr>
+        <tr class="HIGHDAY">HIGHDAY:    {{tsymsResult[result].HIGHDAY}}</tr>
+        <tr class="LOWDAY">LOWDAY:    {{tsymsResult[result].LOWDAY}}</tr>
+        <tr class="OPEN24HOUR">OPEN24HOUR:    {{tsymsResult[result].OPEN24HOUR}}</tr>
+        <tr class="HIGH24HOUR">HIGH24HOUR:    {{tsymsResult[result].HIGH24HOUR}}</tr>
+        <tr class="LOW24HOUR">LOW24HOUR:    {{tsymsResult[result].LOW24HOUR}}</tr>
+        <tr class="LASTMARKET">LASTMARKET:    {{tsymsResult[result].LASTMARKET}}</tr>
+        <tr class="VOLUMEHOUR">VOLUMEHOUR:    {{tsymsResult[result].VOLUMEHOUR}}</tr>
+        <tr class="VOLUMEHOURTO">VOLUMEHOURTO:    {{tsymsResult[result].VOLUMEHOURTO}}</tr>
+        <tr class="OPENHOUR">OPENHOUR:    {{tsymsResult[result].OPENHOUR}}</tr>
+        <tr class="HIGHHOUR">HIGHHOUR:    {{tsymsResult[result].HIGHHOUR}}</tr>
+        <tr class="LOWHOUR">LOWHOUR:    {{tsymsResult[result].LOWHOUR}}</tr>
+        <tr class="CHANGE24HOUR">CHANGE24HOUR:    {{tsymsResult[result].CHANGE24HOUR}}</tr>
+        <tr class="CHANGEPCT24HOUR">CHANGEPCT24HOUR:    {{tsymsResult[result].CHANGEPCT24HOUR}}</tr>
+        <tr class="CHANGEDAY">CHANGEDAY:    {{tsymsResult[result].CHANGEDAY}}</tr>
+        <tr class="CHANGEPCTDAY">CHANGEPCTDAY:    {{tsymsResult[result].CHANGEPCTDAY}}%</tr>
+        <tr class="SUPPLY">SUPPLY:    {{tsymsResult[result].SUPPLY}}</tr>
+        <tr class="MKTCAP">MKTCAP:    {{tsymsResult[result].MKTCAP}}</tr>
+        <tr class="TOTALVOLUME24H">TOTALVOLUME24H:    {{tsymsResult[result].TOTALVOLUME24H}}</tr>
+        <tr class="TOTALVOLUME24HTO">TOTALVOLUME24HTO:    {{tsymsResult[result].TOTALVOLUME24HTO}}</tr> 
     </tbody>
   </table>
 </div>
