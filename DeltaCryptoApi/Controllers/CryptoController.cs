@@ -71,6 +71,7 @@ namespace DeltaCryptoApi.Controllers
             return cryptoItem;
         }
 
+        [Route("InsertCrypto")]
         [HttpPost]
         public async Task<ActionResult<Crypto>> Postcrypto([FromBody]Crypto cryptoItem)
         {
@@ -88,7 +89,7 @@ namespace DeltaCryptoApi.Controllers
             }, cryptoItem);
         }
 
-        [Route("{id}")]
+        [Route("DeleteCrypto/{id}")]
         [HttpDelete]
         public async Task<IActionResult> Deletecrypto(long id)
         {
@@ -105,7 +106,7 @@ namespace DeltaCryptoApi.Controllers
             return NoContent();
         }
 
-        [Route("{id}")]
+        [Route("UpdateCrypto/{id}")]
         [HttpPut]
         public async Task<IActionResult> Putcrypto(long id, Crypto cryptoItem)
         {

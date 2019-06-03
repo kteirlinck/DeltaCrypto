@@ -28,17 +28,6 @@ namespace DeltaCryptoApi.Model
                 var TRX = new Crypto() { Type = "TRON", Price = 9 };
                 var NEO = new Crypto() { Type = "NEO", Price = 10 };
 
-                //var BTC = new Crypto() { Type = "Bitcoin"};
-                //var ETH = new Crypto() { Type = "Ethereum"};
-                //var EOS = new Crypto() { Type = "EOS"};
-                //var LTC = new Crypto() { Type = "Litecoin"};
-                //var XRP = new Crypto() { Type = "Ripple"};
-                //var BSV = new Crypto() { Type = "Bitcoin SV"};
-                //var BCH = new Crypto() { Type = "Bitcoin Cash"};
-                //var ZEC = new Crypto() { Type = "ZCash"};
-                //var TRX = new Crypto() { Type = "TRON"};
-                //var NEO = new Crypto() { Type = "NEO"};
-
                 context.CryptoCurrencies.Add(BTC);
                 context.CryptoCurrencies.Add(ETH);
                 context.CryptoCurrencies.Add(EOS);
@@ -52,7 +41,17 @@ namespace DeltaCryptoApi.Model
                 #endregion
 
                 #region testing units
-                var myWallet = new Wallet() { Funds = 100000, TotalCapitalValue = 100000 };
+
+                var myBitcoin = new Asset() { NewQuantity = 1000, Crypto = BTC, BoughtFor = BTC.Price };
+                var myEthereum = new Asset() { NewQuantity = 1000, Crypto = ETH, BoughtFor = ETH.Price };
+                var myRipple = new Asset() { NewQuantity = 1000, Crypto = XRP, BoughtFor = XRP.Price };
+                List<Asset> myAssets = new List<Asset>();
+                myAssets.Add(myBitcoin);
+                myAssets.Add(myEthereum);
+                myAssets.Add(myRipple);
+                var myWallet = new Wallet() { Funds = 100000, TotalCapitalValue = 100000,
+                    Assets = myAssets 
+                };
                 var myBO = new BuyOrder() { BuyTarget = 5000 };
                 var mySO = new SellOrder() { SellTargetLower = 4750, SellTargetUpper = 5500 };
 

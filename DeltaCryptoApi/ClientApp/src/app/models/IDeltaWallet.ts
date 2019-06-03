@@ -1,5 +1,8 @@
+import { IDeltaCrypto } from "./IDeltaCrypto";
+
 export interface IDeltaWallet {
-    id: number;
+    id?: number;
     funds: number;
     totalCapitalValue: number;
+    assets?: IDeltaCrypto[];
 }

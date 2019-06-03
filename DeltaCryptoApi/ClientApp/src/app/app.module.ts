@@ -23,16 +23,8 @@ import { DeltamboService } from './services/deltambo.service';
 import { DeltamsoService } from './services/deltamso.service';
 import { DeltawalletService } from './services/deltawallet.service';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-
-// const config = {
-//   apiKey: "AIzaSyBFyov--suHk7wTcBH_LL1eYONyIflt6No",
-//   authDomain: "deltacrypto.firebaseapp.com",
-//   databaseURL: "https://deltacrypto.firebaseio.com",
-//   projectId: "deltacrypto",
-//   storageBucket: "deltacrypto.appspot.com",
-//   messagingSenderId: "79286950697",
-//   appId: "1:79286950697:web:4b2c88e0fa331128"
-// };
+import { CallbackComponent } from './components/callback/callback.component';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -49,6 +41,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     MybuyordersComponent,
     MysellordersComponent,
     PageNotFoundComponent,
+    CallbackComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -65,11 +58,12 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
       { path: 'wallet', component: WalletComponent},
       { path: 'mybuyorders', component: MybuyordersComponent},
       { path: 'mysellorders', component: MysellordersComponent},
+      { path: 'callback', component: CallbackComponent },
       { path: '', redirectTo: "home", pathMatch: "full"},
       { path: '**', component: PageNotFoundComponent},
     ])
   ],
-  providers: [CryptoDataService,DeltacryptoService,DeltamboService,DeltamsoService,DeltawalletService],
+  providers: [CryptoDataService,DeltacryptoService,DeltamboService,DeltamsoService,DeltawalletService,AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

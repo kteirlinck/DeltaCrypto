@@ -15,7 +15,7 @@ namespace DeltaCryptoApi.Model
         public int Funds { get; set; }
         public int TotalCapitalValue { get; set; }
 
-        [JsonIgnore]
-        public ICollection<Crypto> Assets { get; set; }
+        //[JsonIgnore]
+        public List<Asset> Assets { get; set; }
     }
 }

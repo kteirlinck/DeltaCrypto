@@ -32,10 +32,13 @@ export class SpecbuyorderComponent implements OnInit {
   }
 
   submitBuyOrder(){
-    this.dCBuyOrder.crypto = this.dCryptoPick.valueOf();
-    this.dCBuyOrder.quantity = this.dCBQuantity.valueOf();
-    this.dCBuyOrder.buyTarget = this.dCBuyTarget.valueOf();
-    this.dCBuyOrder.datePlaced = this.dateTimeListed.valueOf();
+    this.snapShotTime();
+    this.dCBuyOrder = {
+      crypto: this.dCryptoPick,
+      quantity: this.dCBQuantity,
+      buyTarget: this.dCBuyTarget,
+      datePlaced: this.dateTimeListed
+    }
   }
 
   get DCryptoPick(){
@@ -44,7 +47,6 @@ export class SpecbuyorderComponent implements OnInit {
 
   set DCryptoPick(value: number){
     this.dCryptoPick = value;
-    this.submitBuyOrder();
   }
   
   get DCBQuantity(){
@@ -53,7 +55,6 @@ export class SpecbuyorderComponent implements OnInit {
 
   set DCBQuantity(value: number){
     this.dCBQuantity = value;
-    this.submitBuyOrder();
   }
 
   get DCBuyTarget(){
@@ -62,28 +63,18 @@ export class SpecbuyorderComponent implements OnInit {
 
   set DCBuyTarget(value: number){
     this.dCBuyTarget = value;
-    this.submitBuyOrder();
   }
 
 
   snapShotTime(){
     var date = new Date();
     this.dateTimeListed = date;
-    // console.log(date);
-    // console.log(this.dateTimeListed);
   }
 
   showBOInput(){
-    this.snapShotTime();
     console.log(this.dCBQuantity);
     console.log(this.dCBuyTarget);
     console.log(this.dCBuyOrder);
   }
 
 }
-
-// interface IDeltaBuyOrderDTO {
-//     dcbt: number;
-//     dcbq: number;
-//     dcbtype: number;
-// }

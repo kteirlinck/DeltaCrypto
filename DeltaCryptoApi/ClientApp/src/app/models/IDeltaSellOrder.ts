@@ -1,5 +1,5 @@
 export interface IDeltaSellOrder {
-    id: number;
+    id?: number;
     sellTargetUpper: number;
     sellTargetLower: number;
     quantity: number;

@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore;
 namespace DeltaCryptoApi.Controllers
 {
     [Route("api/[controller]")]
-    [Authorize]
+    //[Authorize]
     [ApiController]
     public class BuyOrderController : ControllerBase
     {
@@ -41,6 +41,7 @@ namespace DeltaCryptoApi.Controllers
             return buyOrderItem;
         }
 
+        [Route("InsertBuyOrder")]
         [HttpPost]
         public async Task<ActionResult<BuyOrder>> PostBuyOrder([FromBody]BuyOrder buyOrderItem)
         {
@@ -61,7 +62,7 @@ namespace DeltaCryptoApi.Controllers
             }, buyOrderItem);
         }
 
-        [Route("{id}")]
+        [Route("DeleteBuyOrder/{id}")]
         [HttpDelete]
         public async Task<IActionResult> DeleteBuyOrder(long id)
         {
@@ -78,7 +79,7 @@ namespace DeltaCryptoApi.Controllers
             return NoContent();
         }
 
-        [Route("{id}")]
+        [Route("UpdateBuyOrder{id}")]
         [HttpPut]
         public async Task<IActionResult> PutBuyOrder(long id, BuyOrder buyOrderItem)
         {

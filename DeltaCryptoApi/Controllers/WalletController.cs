@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore;
 namespace DeltawalletApi.Controllers
 {
     [Route("api/[controller]")]
-    [Authorize]
+    //[Authorize]
     [ApiController]
     public class WalletController : ControllerBase
     {
@@ -41,6 +41,7 @@ namespace DeltawalletApi.Controllers
             return walletItem;
         }
 
+        [Route("/CreateWallet")]
         [HttpPost]
         public async Task<ActionResult<Wallet>> Postwallet([FromBody]Wallet walletItem)
         {
@@ -59,7 +60,7 @@ namespace DeltawalletApi.Controllers
             }, walletItem);
         }
 
-        [Route("{id}")]
+        [Route("/DeleteWallet/{id}")]
         [HttpDelete]
         public async Task<IActionResult> Deletewallet(long id)
         {
@@ -76,7 +77,7 @@ namespace DeltawalletApi.Controllers
             return NoContent();
         }
 
-        [Route("{id}")]
+        [Route("/UpdateWallet{id}")]
         [HttpPut]
         public async Task<IActionResult> Putwallet(long id, Wallet walletItem)
         {

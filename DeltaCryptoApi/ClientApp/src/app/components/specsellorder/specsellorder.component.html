@@ -3,14 +3,14 @@
 <br>
 <form>
   1. Choose an Asset to sell:<br>
-  <select id="dCryptoSelect" [(ngModel)]="dCryptoPick">
-    <option *ngFor="let dcryptos of dCryptos" [value]="dcryptos.Type">{{dcryptos.Type}}</option>
+  <select id="dAssetSelect" [(ngModel)]="dAssetPick" name="dCryptoSOList">
+    <option *ngFor="let dassets of dAryptos" [value]="dassets.Type">{{dassets.Type}}</option>
   </select><br>
   2. Set a quantity to list:<br>
-  <input type="number" name="dCQuantity"><br>
+  <input type="number" name="dCQuantity" [(ngModel)]="dCSQuantity"><br>
   3. Confirm the lower and upper target boundaries:<br>
-  <input type="number" name="dCSellTargetLower"><br>
-  <input type="number" name="dCSellTargetUpper"><br>
+  <input type="number" name="dcSellTargetLower" [(ngModel)]="dCSellTargetLower"><br>
+  <input type="number" name="dcSellTargetUpper" [(ngModel)]="dCSellTargetUpper"><br>
   4. Submit your sell order.<br>
   <input type="submit" value="Place Sell Order">
 </form>
