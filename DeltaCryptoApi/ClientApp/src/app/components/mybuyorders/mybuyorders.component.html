@@ -1,0 +1,28 @@
+<h2>JOHNDOE's Listed BuyOrders</h2>
+<br>
+<table class="table table-buyorders">
+  <thead>
+    <tr>
+      <th class="place">Index:</th>
+      <th class="type">Coin:</th>
+      <th class="price">Current Price/Each:</th>
+      <th class="quantity">Quantity Requested:</th>
+      <th class="buy-target">Amount Offered/Each:</th>
+      <th class="buyOrder-value">Total BuyOrder Value</th>
+      <th class="date-placed">Placed on:</th>
+      <th class="actions">Actions:</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let crypto of objectKeys(cryptos.Data)">
+      <td class="index"></td>
+      <td class="type"></td>
+      <td class="price"></td>
+      <td class="quantity"></td>
+      <td class="buy-target"></td>
+      <td class="buyOrder-value"></td>
+      <td class="date-placed"></td>
+      <td class="actions"><button>CANCEL</button></td>
+    </tr>
+  </tbody>
+</table>

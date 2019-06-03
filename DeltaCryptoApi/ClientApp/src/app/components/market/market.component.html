@@ -1,0 +1,32 @@
+<h1>Observe the marketplace</h1>
+
+<p>The following table displays cryptocurrencies ordered by their volatility this day.</p>
+
+<div *ngIf="cryptos">
+  <table class="table table-coins">
+    <thead>
+      <tr>
+        <th class="place">Index</th>
+        <th class="thumb">Coin</th>
+        <th class="price">Price</th>
+        <th class="volume">Traded Vol. 24H</th>
+        <th class="full-volume">Total Vol. 24H</th>
+        <th class="market-cap">Mkt. Cap</th>
+        <th class="change">Change</th>
+        <th class="changePct">Change%</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let crypto of objectKeys(cryptos.Data)">
+        <td class="index">{{ crypto }}</td>
+        <td class="name">{{ cryptos.Data[crypto].CoinInfo.Name }}</td>
+        <td class="price">{{ cryptos.Data[crypto].DISPLAY.EUR.PRICE }}</td>
+        <td class="volume">{{ cryptos.Data[crypto].DISPLAY.EUR.TOTALVOLUME24H }}</td>
+        <td class="full-volume">{{ cryptos.Data[crypto].DISPLAY.EUR.TOTALVOLUME24HTO }}</td>
+        <td class="market-cap">{{ cryptos.Data[crypto].DISPLAY.EUR.MKTCAP }}</td>
+        <td class="change">{{ cryptos.Data[crypto].DISPLAY.EUR.CHANGEDAY }}</td>
+        <td class="changePct">{{ cryptos.Data[crypto].DISPLAY.EUR.CHANGEPCTDAY }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,32 @@
+<h2>JOHNDOE's Wallet</h2>
+<br>
+<strong>AVAILABLE FUNDS:</strong>
+<br>
+<p>placefundshere</p>
+<br>
+<strong>TOTAL WALLET VALUE:</strong>
+<br>
+<p>placeTCVhere = funds + foreach(asset)price*quantity</p>
+<br>
+<table class="table table-assets">
+  <thead>
+    <tr>
+      <th class="place">Index:</th>
+      <th class="type">Coin:</th>
+      <th class="price">Price/Each:</th>
+      <th class="quantity">Quantity:</th>
+      <th class="asset-value">Total Asset Value:</th>
+      <th class="date-bought">Bought on:</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let crypto of objectKeys(cryptos.Data)">
+      <td class="index"></td>
+      <td class="name"></td>
+      <td class="price"></td>
+      <td class="quantity"></td>
+      <td class="asset-value"></td>
+      <td class="date-bought"></td>
+    </tr>
+  </tbody>
+</table>

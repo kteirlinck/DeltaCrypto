@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DeltaCryptoApi.Model;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 namespace DeltaCryptoApi.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize]
     [ApiController]
     public class BuyOrderController : ControllerBase
     {
@@ -24,24 +26,6 @@ namespace DeltaCryptoApi.Controllers
         {
             return _context.BuyOrders.ToList();
         }
-
-        //[HttpGet]
-        //public IQueryable<BuyOrderDTO> GetBuyOrders()
-        //{
-        //    var buyOrders = from b in _context.BuyOrders
-        //                    select new BuyOrderDTO()
-        //                    {
-        //                        Id = b.Id,
-        //                        BuyTarget = b.BuyTarget,
-        //                        Quantity = b.Quantity,
-        //                        DatePlaced = b.DatePlaced,
-        //                        DateExecuted = b.DateExecuted,
-        //                        CryptoId = b.Crypto.Id,
-        //                        Price = b.Crypto.Price,
-        //                        Type = b.Crypto.Type
-        //                    };
-        //    return buyOrders;
-        //}
 
         [Route("{id}")]
         [HttpGet]

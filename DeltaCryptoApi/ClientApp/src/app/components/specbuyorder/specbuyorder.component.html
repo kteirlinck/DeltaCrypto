@@ -1,0 +1,16 @@
+<h2>Place a Buy Order</h2>
+<p>Use the elements below to create a buy order by picking a crypto, quantity, and target price per unit.</p>
+<br>
+<form>
+  1. Choose a crypto:<br>
+  <select id="dCryptoSelect" [(ngModel)]="dCryptoPick" name="dCryptoSOList">
+    <option *ngFor="let dcryptos of dCryptos" [value]="dcryptos.type">{{dcryptos.type}}</option>
+  </select><br>
+  2. Set a quantity:<br>
+  <input type="number" name="dCQuantity" [value]="dCBQuantity"><br>
+  3. Set a target price to buy at:<br>
+  <input type="number" name="dCBuyTarget" [value]="dCBuyTarget"><br>
+  4. Submit your buy order.<br>
+  <input type="submit" value="Place Buy Order" (click)="submitBuyOrder()">
+  <input type="submit" value="Log User Entry" (click)="showBOInput()">
+</form>

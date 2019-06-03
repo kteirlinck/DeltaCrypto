@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace DeltaCryptoApi
 {
@@ -31,12 +32,21 @@ namespace DeltaCryptoApi
                     Configuration.GetConnectionString("DefaultConnection")
                 )
             );
+
             services.Configure<ApiBehaviorOptions>(options =>
             {
                 options.SuppressModelStateInvalidFilter = true;
             });
 
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+            {
+                    options.Authority = "https://accounts.google.com";
+                    options.Audience = "noteer hier client id";
+            });
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,11 +58,15 @@ namespace DeltaCryptoApi
             }
 
             app.UseCors(builder =>
-                        builder.AllowAnyHeader()
+                        builder
+                        .WithOrigins("http://localhost:4200")
                         .AllowAnyHeader()
-                        .AllowAnyHeader());
-
+                        .AllowAnyOrigin()
+                        .AllowAnyMethod());
+                        
             DBInitializer.Initialize(context);
+
+            app.UseAuthentication();
             app.UseMvc();
         }
         //public Startup(IConfiguration configuration)

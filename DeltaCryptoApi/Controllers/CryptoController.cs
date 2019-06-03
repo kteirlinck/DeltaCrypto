@@ -19,11 +19,43 @@ namespace DeltaCryptoApi.Controllers
             _context = ctxt;
         }
 
+        //[HttpGet]
+        //public List<Crypto> GetCryptos()
+        //{
+        //    return _context.CryptoCurrencies.ToList();
+        //}
+
         [HttpGet]
-        public List<Crypto> GetCryptos()
+        public async Task<ActionResult<IEnumerable<Crypto>>> GetCryptos(int? price, string type,
+            string sort, string direction = "asc", int pageNr = 0, int pageLength = 2)
         {
-            return _context.CryptoCurrencies.ToList();
+            IQueryable<Crypto> query = _context.CryptoCurrencies;
+
+            if (price != null)
+                query = query.Where(d => d.Price == price);
+            if (!string.IsNullOrEmpty(type))
+                query = query.Where(d => d.Type == type);
+
+            switch (sort)
+            {
+                case "price":
+                    if (direction == "asc")
+                        query = query.OrderBy(b => b.Price);
+                    else query = query.OrderByDescending(b => b.Price);
+                    break;
+                case "type":
+                    if (direction == "asc")
+                        query = query.OrderBy(b => b.Type);
+                    else query = query.OrderByDescending(b => b.Type);
+                    break;
+            }
+
+            query = query.Skip(pageNr * pageLength);
+            query = query.Take(pageLength);
+
+            return await query.ToListAsync();           
         }
+
 
         [Route("{id}")]
         [HttpGet]
